@@ -50,9 +50,11 @@ app.post('/api/:id',function(req,res){
     res.send(newpeople);
 });
 
-app.delete('/api/delete/:id', function(req,res){
-    if(req.params.id<=people.length-1){
-        people.splice(req.params.id,1);
+app.delete('/api/:name', function(req,res){
+    for(var i=0;i<=people.length-1;i++){
+       if (req.params.name=== people[i].name ) {
+           people.splice(i, 1);
+       }
     }
     res.send(people);
 });
